@@ -12,9 +12,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private Button myButton;
+    private TextView myTextview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +45,13 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        myButton = (Button) findViewById(R.id.myButton);
+        myTextview = (TextView) findViewById(R.id.myTextview);
+        myButton.setOnClickListener(onClickListener);
+        myTextview.setOnClickListener(onClickListener);
+
+
     }
 
     @Override
@@ -98,4 +110,13 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    private final View.OnClickListener onClickListener = new View.OnClickListener() {
+
+        @Override
+        public void onClick(View view) {
+            myTextview.setText("Hi!");
+
+        }
+    };
 }
