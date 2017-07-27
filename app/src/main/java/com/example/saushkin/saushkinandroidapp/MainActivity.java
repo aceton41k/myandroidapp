@@ -115,7 +115,15 @@ public class MainActivity extends AppCompatActivity
 
         @Override
         public void onClick(View view) {
-            myTextview.setText("Hiii!");
+            switch(view.getId()) {
+                case R.id.myButton:
+                    myTextview.setText("Hiii!");
+                    break;
+                case R.id.myTextview:
+                    myTextview.setText("Hello World!");
+                    break;
+            }
+
 
         }
     };
