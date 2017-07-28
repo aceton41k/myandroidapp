@@ -1,5 +1,6 @@
 package com.example.saushkin.saushkinandroidapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -52,7 +53,11 @@ public class MainActivity extends AppCompatActivity
         myButton = (Button) findViewById(R.id.myButton);
         myTextview = (TextView) findViewById(R.id.myTextview);
         inputText = (EditText) findViewById(R.id.inputText);
+        if ( savedInstanceState != null ) {
+            inputText.setText("Resumed");
+        }
         inputText.setText("Started");
+
 
 
         myButton.setOnClickListener(onClickListener);
@@ -62,11 +67,6 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-    @Override
-    public void onPostResume() {
-        super.onPostResume();
-        inputText.setText("Resumed");
-    }
 
     @Override
     public void onBackPressed() {
@@ -116,8 +116,9 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_share) {
 
-        } else if (id == R.id.nav_send) {
-
+        } else if (id == R.id.aboutItem) {
+            Intent intent = new Intent(MainActivity.this, AboutActivity.class);
+            startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -136,9 +137,13 @@ public class MainActivity extends AppCompatActivity
                 case R.id.myTextview:
                     myTextview.setText("Hello World!");
                     break;
+                case R.id.aboutBtn:
+                    Intent intent = new Intent(MainActivity.this, AboutActivity.class);
+                    startActivity(intent);
+                    break;
+            }
             }
 
 
-        }
     };
 }
