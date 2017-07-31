@@ -53,10 +53,6 @@ public class MainActivity extends AppCompatActivity
         myButton = (Button) findViewById(R.id.myButton);
         myTextview = (TextView) findViewById(R.id.myTextview);
         inputText = (EditText) findViewById(R.id.inputText);
-        if ( savedInstanceState != null ) {
-            inputText.setText("Resumed");
-        }
-        inputText.setText("Started");
 
 
 
